@@ -1,0 +1,127 @@
+{
+    "env": {
+        "jest": true
+    },
+    "extends": [
+        "airbnb-base",
+        "prettier",
+        "plugin:prettier/recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 12
+    },
+    "plugins": [
+        "@typescript-eslint",
+        "eslint-plugin-import-helpers",
+        "prettier",
+        "react-hooks",
+        "unused-imports",
+        "testing-library"
+    ],
+    "rules": {
+        "no-console": "off",
+        "class-methods-use-this": "off",
+        "no-useless-constructor": "off",
+        "prettier/prettier": "error",
+        "no-shadow": "off",
+        "quotes": ["error", "double", { "allowTemplateLiterals": true }],
+        "no-param-reassign": "off",
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn",
+        "react/prop-types": "off",
+        "react/no-array-index-key": "off",
+        "import/no-extraneous-dependencies": [
+            "error",
+            {
+                "devDependencies": [
+                    "test.{ts,tsx}",
+                    "test-*.{ts,tsx}",
+                    "**/*{.,_}{test,spec}.{ts,tsx}",
+                    "**/jest.config.ts",
+                    "**/jest.setup.ts"
+                ],
+                "optionalDependencies": false
+            }
+        ],
+        "import-helpers/order-imports": [
+            "warn",
+            {
+                "newlinesBetween": "always",
+                "groups": [
+                    "module",
+                    [
+                        "parent",
+                        "sibling",
+                        "index"
+                    ]
+                ],
+                "alphabetize": {
+                    "order": "asc",
+                    "ignoreCase": true
+                }
+            }
+        ],
+        "import/no-unresolved": [
+            "error", { "ignore":  ["^@"] }
+        ],
+        "import/prefer-default-export": "off",
+        "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+                "js": "never",
+                "jsx": "never",
+                "ts": "never",
+                "tsx": "never"
+            }
+        ],
+        "unused-imports/no-unused-imports": "error",
+        "@typescript-eslint/ban-ts-comment": "off",
+        "@typescript-eslint/no-unused-vars": [
+            "error",
+            {
+                "ignoreRestSiblings": true,
+                "destructuredArrayIgnorePattern": "[A-Z]",
+                "caughtErrors": "none"
+            }
+        ],
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/explicit-module-boundary-types": [
+            "warn",
+            {
+                "allowArgumentsExplicitlyTypedAsAny": true
+            }
+        ],
+        "@typescript-eslint/ban-types": "off",
+        "@typescript-eslint/no-empty-function": "off",
+        "@typescript-eslint/naming-convention": [
+            "error",
+            {
+                "selector": "interface",
+                "format": [
+                    "PascalCase"
+                ],
+                "custom": {
+                    "regex": "^I[A-Z]",
+                    "match": true
+                }
+            }
+        ],
+        "@typescript-eslint/no-shadow": "error"
+    },
+    "settings": {
+        "import/resolver": {
+            "typescript": {
+                "project": "tsconfig.json"
+            }
+        }
+    },
+    "overrides": [
+        {
+            "files": ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],
+            "extends": ["plugin:testing-library/react"]
+        }
+    ]
+}
